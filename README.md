@@ -1,6 +1,6 @@
 ## Hi there 👋 I'm Shikha Mandal
 
-I’m currently working on building backend-heavy projects<br>I’m looking to collaborate on backend-heavy projects / Open Source<br>I’m looking for help with System Design & Scaling backend systems (Redis, Kafka, caching, load balancing)<br>I’m currently learning System Design, Redis, Kafka, and Advanced DSA
+I’m currently working on building backend-heavy projects<br>I’m looking to collaborate on backend-heavy projects / Open Source<br>I’m looking for help with System Design & Scaling backend systems (Redis, Kafka, caching, load balancing)<br>I’m currently learning System Design
 
 
 ## 🌐 Socials:
