@@ -8,9 +8,13 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: Platane/snk/svg-only@v3
         with:
@@ -18,20 +22,9 @@ jobs:
           outputs: |
             dist/github-contribution-grid-snake.svg
 
-      - name: Push to output branch
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/theshikhaa/theshikhaa.git
-          mkdir -p output-build
-          cp dist/github-contribution-grid-snake.svg output-build/
-          git add --all && git stash || true
-          git fetch origin output:output || git checkout -b output
-          git checkout output
-          git rm -rf . || true
-          cp output-build/github-contribution-grid-snake.svg .
-          git add github-contribution-grid-snake.svg
-          git commit -m "Update snake animation" --allow-empty
-          git push -u origin output --force
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          destination_dir: ./
+          publish_branch: output
