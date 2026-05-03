@@ -11,14 +11,9 @@ I’m currently working on building backend-heavy projects<br>I’m looking to c
 
 ---
 
-## 📊 GitHub Stats  
 <p align="center">
-  <img src="https://github-readme-stats.shion.dev/api/top-langs/?username=theshikhaa&theme=tokyonight&hide_border=true&layout=compact"/>
+  <img src="https://raw.githubusercontent.com/theshikhaa/theshikhaa/output/github-contribution-grid-snake-dark.svg" />
 </p>
-<p align="center">
-  <img src="https://raw.githubusercontent.com/theshikhaa/theshikhaa/output/snake-dark.svg" />
-</p>
-
 ---
 
 # 📊 GitHub Stats:
