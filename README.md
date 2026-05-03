@@ -14,6 +14,7 @@ I’m currently working on building backend-heavy projects<br>I’m looking to c
 <p align="center">
   <img src="https://raw.githubusercontent.com/theshikhaa/theshikhaa/output/github-contribution-grid-snake-dark.svg" />
 </p>
+
 ---
 
 # 📊 GitHub Stats:
