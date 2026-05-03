@@ -8,28 +8,19 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
 
     steps:
-      - uses: actions/checkout@v4
-
-      - uses: Platane/snk@v3
+      - name: Generate snake
+        uses: Platane/snk@v3
         with:
           github_user_name: theshikhaa
           outputs: |
-            dist/github-contribution-grid-snake.svg
-            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+            dist/snake.svg
+            dist/snake-dark.svg?palette=github-dark
 
-      - name: Commit and push snake animation
-        run: |
-          mkdir -p snake-assets
-          cp dist/github-contribution-grid-snake.svg snake-assets/
-          cp dist/github-contribution-grid-snake-dark.svg snake-assets/ 2>/dev/null || true
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add snake-assets/
-          git diff --cached --exit-code || git commit -m "update snake animation"
-          git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Push to output branch
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: output
