@@ -13,8 +13,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - uses: Platane/snk/svg-only@v3
         with:
@@ -22,9 +20,14 @@ jobs:
           outputs: |
             dist/github-contribution-grid-snake.svg
 
-      - uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          destination_dir: ./
-          publish_branch: output
+      - name: Commit and push snake animation
+        run: |
+          mkdir -p snake-assets
+          cp dist/github-contribution-grid-snake.svg snake-assets/
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add snake-assets/
+          git commit -m "update snake animation" || exit 0
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
